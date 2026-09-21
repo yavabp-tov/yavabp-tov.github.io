@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蘑菇-自然科普与菌类文化百科指南</title>
+    <meta name="description" content="蘑菇百科，提供全面的蘑菇种类介绍、形态特征、生长环境及食用安全指南。涵盖野生菌识别、药用价值及烹饪技巧，助您安全探索自然菌类世界。">
+    <meta name="keywords" content="蘑菇, 野生菌, 食用菌, 蘑菇种类, 蘑菇识别, 蘑菇科普">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #4a7c59;
+            --primary-dark: #2e5239;
+            --accent-color: #e6a23c;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --border-radius: 8px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            font-size: 32px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: var(--bg-light);
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            margin-left: 8px;
+            width: 150px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(230, 162, 60, 0.4);
+        }
+
+        /* Quick Stats */
+        .stats-bar {
+            background: var(--bg-white);
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Main Content Grid */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            gap: 30px;
+            margin-top: 50px;
+            margin-bottom: 60px;
+        }
+
+        /* Section Styles */
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .section-link {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: normal;
+        }
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--bg-white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-image {
+            height: 180px;
+            background-color: #eee;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .card-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #999;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        /* Sidebar */
+        .sidebar-section {
+            background: var(--bg-white);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 30px;
+        }
+
+        .sidebar-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .sidebar-list li:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-list a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .sidebar-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .sidebar-list .count {
+            background: #eee;
+            color: #666;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+        }
+
+        /* Safety Alert */
+        .alert-box {
+            background-color: #fef0f0;
+            border-left: 4px solid #f56c6c;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+
+        .alert-box h4 {
+            color: #f56c6c;
+            margin-bottom: 5px;
+        }
+
+        .alert-box p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background: var(--bg-white);
+            padding: 50px 0;
+            border-top: 1px solid #eee;
+        }
+
+        .guide-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .step-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 20px;
+        }
+
+        .step-item h3 {
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+
+            nav ul {
+                margin: 15px 0;
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-bar {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo"><span>🍄</span> 蘑菇百科</a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">种类大全</a></li>
+                    <li><a href="#">识别指南</a></li>
+                    <li><a href="#">安全食用</a></li>
+                    <li><a href="#">菌菇文化</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <span>🔍</span>
+                <input type="text" placeholder="搜索蘑菇名称...">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>探索微观森林世界</h1>
+                <p>从餐桌上的美味食材到森林深处的神秘生物，全面了解蘑菇的形态、习性及科学价值。</p>
+                <a href="#guide" class="cta-button">开始探索</a>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <div class="container">
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-number">10,000+</span>
+                    <span class="stat-label">已知种类</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1,500+</span>
+                    <span class="stat-label">可食用菌</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">毒菌品种</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">300+</span>
+                    <span class="stat-label">药用价值</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="container main-layout">
+            <!-- Left Column -->
+            <div class="content-area">
+                <!-- Featured Categories -->
+                <section class="section">
+                    <div class="section-title">
+                        <h2>热门分类</h2>
+                        <a href="#" class="section-link">查看全部 →</a>
+                    </div>
+                    <div class="card-grid">
+                        <article class="card">
+                            <div class="card-image">
+                                <span class="card-tag">食用</span>
+                                <img src="https://picsum.photos/seed/mushroom1/400/300" alt="香菇">
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title">香菇</h3>
+                                <p class="card-desc">世界第二大食用菌，富含香菇多糖，具有增强免疫力的功效。</p>
+                                <div class="card-meta">
+                                    <span>菌类之王</span>
+                                    <span>冬/春季</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="card">
+                            <div class="card-image">
+                                <span class="card-tag">食用</span>
+                                <img src="https://picsum.photos/seed/mushroom2/400/300" alt="松茸">
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title">松茸</h3>
+                                <p class="card-desc">珍稀名贵食用菌，香气浓郁，口感鲜甜，被誉为“菌中之王”。</p>
+                                <div class="card-meta">
+                                    <span>野生珍品</span>
+                                    <span>夏/秋季</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="card">
+                            <div class="card-image">
+                                <span class="card-tag">毒菌</span>
+                                <img src="https://picsum.photos/seed/mushroom3/400/300" alt="毒蝇伞">
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title">毒蝇伞</h3>
+                                <p class="card-desc">著名的毒菌，具有鲜艳的红色伞盖，含有毒蝇碱，不可食用。</p>
+                                <div class="card-meta">
+                                    <span>有毒警告</span>
+                                    <span>夏/秋季</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="card">
+                            <div class="card-image">
+                                <span class="card-tag">食用</span>
+                                <img src="https://picsum.photos/seed/mushroom4/400/300" alt="牛肝菌">
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title">牛肝菌</h3>
+                                <p class="card-desc">口感肥厚鲜美，含有人体必需的多种氨基酸，营养价值极高。</p>
+                                <div class="card-meta">
+                                    <span>肉质肥厚</span>
+                                    <span>夏/秋季</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Safety Guide -->
+                <section class="section" style="margin-top: 50px;">
+                    <div class="section-title">
+                        <h2>野生菌识别安全指南</h2>
+                        <a href="#" class="section-link">更多安全提示 →</a>
+                    </div>
+                    <div class="alert-box">
+                        <h4>⚠️ 重要提示</h4>
+                        <p>野生蘑菇种类繁多，仅凭颜色、形状或民间经验（如“鲜艳的蘑菇有毒”）往往无法准确判断安全性。错误识别可能导致严重中毒甚至危及生命。本站提供科学分类与形态特征分析，仅供识别参考，不作为食用依据。</p>
+                    </div>
+                    <div class="guide-steps" id="guide">
+                        <div class="step-item">
+                            <div class="step-icon">1</div>
+                            <h3>观察菌盖</h3>
+                            <p>注意菌盖颜色、形状、有无鳞片、绒毛或粘液。记录菌盖大小及是否有菌环。</p>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-icon">2</div>
+                            <h3>检查菌褶</h3>
+                            <p>观察菌褶颜色、形状、分布密度。菌褶是区分食用菌和毒菌的重要特征之一。</p>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-icon">3</div>
+                            <h3>查看菌柄</h3>
+                            <p>检查菌柄形状、颜色、质地、有无菌托（菌环）。有些毒菌有明显的菌托。</p>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-icon">4</div>
+                            <h3>注意气味</h3>
+                            <p>闻一闻气味。有些毒菌有明显的杏仁味、萝卜味或恶臭，但并非所有毒菌都有异味。</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3>常见菌类速查</h3>
+                    <ul class="sidebar-list">
+                        <li><a href="#">灵芝 <span class="count">药用</span></a></li>
+                        <li><a href="#">金针菇 <span class="count">食用</span></a></li>
+                        <li><a href="#">鸡枞菌 <span class="count">食用</span></a></li>
+                        <li><a href="#">毒鹅膏 <span class="count">剧毒</span></a></li>
+                        <li><a href="#">双孢菇 <span class="count">食用</span></a></li>
+                        <li><a href="#">羊肚菌 <span class="count">珍稀</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>热门阅读</h3>
+                    <ul class="sidebar-list">
+                        <li><a href="#">如何制作美味的菌汤？</a></li>
+                        <li><a href="#">家庭栽培蘑菇的入门教程</a></li>
+                        <li><a href="#">蘑菇与森林生态系统的关系</a></li>
+                        <li><a href="#">食用野生菌中毒后的急救措施</a></li>
+                        <li><a href="#">松露的鉴别与烹饪技巧</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section" style="background-color: #e8f5e9; border: 1px solid #c8e6c9;">
+                    <h4 style="color: var(--primary-dark); margin-bottom: 10px;">订阅菌类资讯</h4>
+                    <p style="font-size: 0.9rem; color: #555; margin-bottom: 15px;">获取最新的菌菇科普知识与安全预警。</p>
+                    <input type="email" placeholder="您的邮箱地址" style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                    <button style="width: 100%; padding: 8px; background: var(--primary-color); color: white; border: none; border-radius: 4px; cursor: pointer;">订阅</button>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于蘑菇百科</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">
+                        我们致力于提供最权威、最全面的蘑菇科普资料，帮助大众科学认识菌类，安全享用美食。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">免责声明</a></li>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">友情链接</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>热门专题</h4>
+                    <ul>
+                        <li><a href="#">食用菌栽培</a></li>
+                        <li><a href="#">野生菌中毒案例</a></li>
+                        <li><a href="#">蘑菇摄影图库</a></li>
+                        <li><a href="#">药用真菌研究</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 蘑菇百科 All Rights Reserved. 本站内容仅供科普参考，食用请务必谨慎。
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
