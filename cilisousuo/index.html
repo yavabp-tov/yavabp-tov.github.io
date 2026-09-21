@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="磁力搜索 - 安全高效的磁力链接聚合检索平台。提供电影、电视剧、动漫、软件、游戏等资源的高质量磁力种子搜索、筛选与下载指南，帮助用户快速找到所需文件。">
+    <meta name="keywords" content="磁力搜索, 磁力链接, BT种子, 资源下载, 高清影视, 软件下载, 磁力搜索引擎">
+    <title>磁力搜索 - 高清影视与资源聚合下载平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #00a8ff;
+            --primary-hover: #0097e6;
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-main: #2f3640;
+            --text-secondary: #747d8c;
+            --border-color: #dfe4ea;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 0 40px;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-form {
+            display: flex;
+            background: var(--card-bg);
+            border-radius: 50px;
+            box-shadow: var(--shadow-md);
+            padding: 6px;
+            border: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .search-form:focus-within {
+            border-color: var(--primary-color);
+        }
+
+        .search-input {
+            flex: 1;
+            border: none;
+            padding: 0 24px;
+            font-size: 1rem;
+            outline: none;
+            border-radius: 50px;
+        }
+
+        .search-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 32px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .search-btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Category Grid */
+        .categories {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 16px;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .category-name {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* Content List Section */
+        .content-section {
+            padding: 20px 0 60px;
+        }
+
+        .content-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .content-item {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid var(--border-color);
+            transition: box-shadow 0.2s;
+        }
+
+        .content-item:hover {
+            box-shadow: var(--shadow-sm);
+        }
+
+        .item-info {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .item-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-main);
+        }
+
+        .item-meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            gap: 12px;
+        }
+
+        .item-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .item-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            transition: opacity 0.2s;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            background: var(--bg-color);
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+
+        /* Tips Section */
+        .tips-section {
+            background: #fff;
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .tip-card {
+            background: var(--bg-color);
+            padding: 24px;
+            border-radius: var(--radius-md);
+        }
+
+        .tip-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tip-text {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background: #2f3640;
+            color: #a4b0be;
+            padding: 40px 0;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 16px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .disclaimer {
+            font-size: 0.8rem;
+            max-width: 800px;
+            line-height: 1.5;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 16px 0;
+                gap: 16px;
+            }
+
+            nav ul {
+                gap: 16px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .content-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .item-actions {
+                width: 100%;
+                justify-content: flex-end;
+            }
+
+            .item-info {
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+                <span>MagnetHub</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">最新收录</a></li>
+                    <li><a href="#">热门榜单</a></li>
+                    <li><a href="#">使用指南</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>磁力搜索聚合平台</h1>
+                <p>连接海量资源，提供电影、电视剧、软件、游戏等文件的磁力链接检索服务，助您快速找到所需资源。</p>
+                <div class="search-box">
+                    <form class="search-form" onsubmit="event.preventDefault(); alert('搜索功能演示：请输入关键词进行检索。');">
+                        <input type="text" class="search-input" placeholder="输入电影名、软件名或文件名..." aria-label="搜索关键词">
+                        <button type="submit" class="search-btn">搜索</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="categories container">
+            <h2 class="section-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                资源分类
+            </h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <span class="category-icon">🎬</span>
+                    <span class="category-name">高清影视</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">📺</span>
+                    <span class="category-name">电视剧集</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🎵</span>
+                    <span class="category-name">音乐专辑</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">💻</span>
+                    <span class="category-name">电脑软件</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🎮</span>
+                    <span class="category-name">游戏资源</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">📚</span>
+                    <span class="category-name">电子书刊</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">📷</span>
+                    <span class="category-name">摄影图片</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🔧</span>
+                    <span class="category-name">其他资源</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured List -->
+        <section class="content-section container">
+            <h2 class="section-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                今日热门推荐
+            </h2>
+            <div class="content-list">
+                <article class="content-item">
+                    <div class="item-info">
+                        <h3 class="item-title">星际穿越 (Interstellar) 2014 4K HDR 1080P BluRay-DTS</h3>
+                        <div class="item-meta">
+                            <span>📁 电影</span>
+                            <span>💾 8.5 GB</span>
+                            <span>⬇️ 12,304 下载</span>
+                            <span>📅 2023-10-15</span>
+                        </div>
+                    </div>
+                    <div class="item-actions">
+                        <button class="btn btn-outline" onclick="alert('已复制磁力链接')">复制磁力</button>
+                        <button class="btn btn-primary" onclick="alert('正在打开下载...')">立即下载</button>
+                    </div>
+                </article>
+
+                <article class="content-item">
+                    <div class="item-info">
+                        <h3 class="item-title">Visual Studio Code 1.85.0 Win64 x64 官方安装版</h3>
+                        <div class="item-meta">
+                            <span>📁 软件</span>
+                            <span>💾 85 MB</span>
+                            <span>⬇️ 45,892 下载</span>
+                            <span>📅 2023-10-14</span>
+                        </div>
+                    </div>
+                    <div class="item-actions">
+                        <button class="btn btn-outline" onclick="alert('已复制磁力链接')">复制磁力</button>
+                        <button class="btn btn-primary" onclick="alert('正在打开下载...')">立即下载</button>
+                    </div>
+                </article>
+
+                <article class="content-item">
+                    <div class="item-info">
+                        <h3 class="item-title">原神 v4.1 全平台整合版 (含DLC) + 离线地图资源</h3>
+                        <div class="item-meta">
+                            <span>📁 游戏</span>
+                            <span>💾 52 GB</span>
+                            <span>⬇️ 78,102 下载</span>
+                            <span>📅 2023-10-13</span>
+                        </div>
+                    </div>
+                    <div class="item-actions">
+                        <button class="btn btn-outline" onclick="alert('已复制磁力链接')">复制磁力</button>
+                        <button class="btn btn-primary" onclick="alert('正在打开下载...')">立即下载</button>
+                    </div>
+                </article>
+
+                <article class="content-item">
+                    <div class="item-info">
+                        <h3 class="item-title">Windows 11 Pro 23H2 企业版 LTSC ISO 纯净镜像</h3>
+                        <div class="item-meta">
+                            <span>📁 系统</span>
+                            <span>💾 5.2 GB</span>
+                            <span>⬇️ 99,021 下载</span>
+                            <span>📅 2023-10-12</span>
+                        </div>
+                    </div>
+                    <div class="item-actions">
+                        <button class="btn btn-outline" onclick="alert('已复制磁力链接')">复制磁力</button>
+                        <button class="btn btn-primary" onclick="alert('正在打开下载...')">立即下载</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Usage Tips -->
+        <section class="tips-section">
+            <div class="container">
+                <h2 class="section-title" style="justify-content: center;">使用指南与安全提示</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h4 class="tip-title">🛡️ 安全下载建议</h4>
+                        <p class="tip-text">下载文件前请务必使用杀毒软件扫描，避免运行来源不明的可执行文件，防止系统感染恶意软件。</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4 class="tip-title">⚡ BT下载技巧</h4>
+                        <p class="tip-text">为了获得更快的下载速度，建议保留上传份额。使用专业的BT客户端（如qBittorrent、Transmission）以获得最佳体验。</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4 class="tip-title">🔍 磁力链接格式</h4>
+                        <p class="tip-text">磁力链接通常以 "magnet:?xt=urn:btih:" 开头。点击链接后，系统会自动调用您的默认BT下载工具开始下载。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="logo" style="color: #fff;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary-color);"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                <span style="color: #fff;">MagnetHub</span>
+            </div>
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">免责声明</a>
+                <a href="#">隐私政策</a>
+                <a href="#">联系合作</a>
+            </div>
+            <p class="disclaimer">
+                本站仅提供磁力链接聚合与搜索索引服务，所有资源均来自互联网。本站不对资源的完整性、安全性或版权问题负责。请用户在下载后24小时内删除，并购买正版资源以支持创作者。
+            </p>
+            <p style="font-size: 0.8rem; margin-top: 10px; color: #57606f;">&copy; 2023 MagnetHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
